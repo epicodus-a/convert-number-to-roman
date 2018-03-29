@@ -20,6 +20,7 @@
 
 // You also have to separate ones, tens, hundreds, and thousands. In other words, 99 is XCIX, not IC. You cannot count higher than 3,999 in Roman numerals.
 
+//business logic
 var ones = ['I','II','III','IV','V','VI','VII','VIII','IX'];
 var tens = ['X','XX','XXX','XL','L','LX','LXX','LXXX','XC'];
 var hundreds = ['C','CC','CCC','CD','D','DC','DCC','DCCC', 'CM'];
@@ -40,3 +41,15 @@ var numberToRoman = function(number){
 };
 
 // alert(numberToRoman(3675));
+
+//user interface logic
+$().ready(function(){
+  $(".number-form").submit(function(e){
+    e.preventDefault();
+
+    var number = $("#number").val();
+    var roman = numberToRoman(number);
+    $(".output").append("<p class='lead mt-5'>" + roman + "</p>");
+  });
+
+});
